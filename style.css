@@ -1,0 +1,1095 @@
+/***************************************************
+// Reset
+***************************************************/
+
+/* border-box makes everything easy */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,input,select,textarea,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,nav,section,main{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Better behavior for lists */
+ul,ol{
+	list-style-position: outside;
+	margin-left: 1.4rem;
+	padding-left: 0;
+}
+
+/* Keep images and videos from overspilling their bounds */
+img, video{
+	display: block;
+	max-width :100%;
+	height: auto;
+}
+
+/* Make hr just a simple line */
+hr{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1rem 0;
+	padding: 0;
+}
+
+/* Reduce quirky behavior for tables */
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Make input text line up with other text */
+input,select{
+	vertical-align: middle;
+}
+
+/* Kill default borders on fieldsets */
+fieldset{
+	border: none;
+}
+
+/* It's rare to want an inline textarea */
+textarea{
+	display: block;
+}
+
+/* Make sub and sup text line up better */
+sub,sup{
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup{
+	top: -0.5rem;
+}
+sub{
+	bottom: -0.25rem;
+}
+
+/* A fix for SVG display in old versions of IE. */
+svg:not(:root){
+	overflow: hidden;
+}
+
+/***************************************************
+// Main
+***************************************************/
+
+main {
+    margin: 2rem auto;
+    max-width: 52rem;
+    padding: 1rem;
+}
+
+@media (min-width: 1096px) {
+    main {
+        
+    }
+}
+
+/***************************************************
+// Colors
+***************************************************/
+html {
+    --color-primary:            #10143f;
+    --color-primary-dark:       #00001b;
+    --color-primary-light:      #3c3a6a;
+
+    --color-secondary:          #BD3A26;
+    --color-secondary-dark:     #860000;
+    --color-secondary-light:    #f66b50;
+
+    --color-accent:             #0068B2;
+    --color-accent-dark:        #003e82;
+    --color-accent-light:       #5595e4;
+
+    --color-gray: #1f2d3d;
+    --color-gray-dark: #000117;
+    --color-gray-light: #e5e9f2;
+}
+
+/* ==========================================================================
+ Typography
+========================================================================== */
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,700,700i|Raleway:400,400i,700,700i&display=swap');
+
+html {
+    --font-headings: 'Cabin', sans-serif;
+    --font-primary: 'Raleway', sans-serif;
+    --ratio: 1.333;
+    --size-xlarge: calc(var(--size-large) * var(--ratio) );
+	--size-large: calc(var(--size-medium) * var(--ratio) );
+    --size-medium: calc(1rem * var(--ratio));
+    --size-small: calc(.65rem * var(--ratio));
+    --size-xsmall: calc(.5rem * var(--ratio));
+
+    --margin-large: calc(1rem * var(--ratio) * 2);
+    --margin-medium: calc(1rem * var(--ratio) * 1.5);
+    --margin-standard: calc(1rem * var(--ratio));
+    --margin-small: calc(.6rem * var(--ratio));
+
+    color: var(--color-gray-dark);
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (min-width: 600px) {
+    html {
+        --ratio: 1.5;
+
+        font-size: 18px;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+}
+
+h4, h5, h6 {
+    margin: var(--margin-medium) 0 var(--margin-small);
+}
+
+h1 {
+    font-size: var(--size-xlarge);
+    line-height: 1.2;
+    margin-bottom: var(--margin-large);
+}
+
+h2 {
+    font-size: var(--size-large);
+    margin: var(--margin-large) 0;
+}
+
+h2:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    width: 80px; /* Change this to whatever width you want. */
+    padding-top: 5px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid var(--color-secondary-dark); /* This creates the border. Replace black with whatever color you want. */
+}
+
+h3 {
+    font-size: var(--size-medium);
+    margin: var(--margin-medium) 0 var(--margin-standard);
+}
+
+h5 {
+    font-weight: 500;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+.text-featured {
+    font-size: var(--size-medium);
+    font-weight: 800;
+    max-width: 40rem;
+}
+
+.text-featured-hero-section {
+    color: white;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.text-featured-hero-section:last-of-type {
+    margin-bottom: 3rem;
+}
+
+.text-tetriary {
+    font-size: var(--size-small);
+    max-width: 20rem;
+}
+
+strong {
+    font-family: var(--font-headings);
+    font-weight: 500;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+a:visited {
+    color: var(--color-secondary);
+}
+
+a:hover {
+    color: var(--color-secondary-dark);
+    text-decoration: underline;
+}
+
+a:focus {
+    color: var(--color-secondary-dark);
+}
+
+a:active {
+    color: var(--color-secondary-dark);
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    color: var(--color-secondary-dark);
+    content: "\25AA";
+    display: inline-block;
+    margin-left: -1rem;
+    width: var(--size-medium);
+}
+
+ol {
+    counter-reset: li;
+    list-style: none;
+}
+
+ol li::before{
+    color: var(--color-secondary-dark);
+    content: counter(li);
+    direction: rtl;
+    display: inline-block;
+    margin-left: -1.5rem;
+    margin-right: .5rem;
+    text-align: right;
+    width: 1rem;
+}
+
+ol li {
+    counter-increment: li;
+}
+
+ol ol li::before {
+    content: counter(li, upper-roman); 
+}
+
+blockquote {
+    border-left: 6px solid var(--color-secondary-dark);
+    font-family: var(--font-headings);
+    font-weight: 700;
+    max-width: 25rem;
+    padding-left: var(--size-medium);
+}
+
+/* ==========================================================================
+ Header Component
+========================================================================== */
+header{
+    background-color: var(--color-primary-dark);
+    padding-top: 2rem;
+}
+
+.logo {
+    font-family: var(--font-headings);
+    font-size: calc(1.3rem * var(--ratio));
+    margin: 2rem 0 3rem;
+    text-align: center;
+}
+
+.logo img {
+    margin: 0 auto var(--size-medium);
+    max-width: 100px;
+}
+.logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo a:active, .logo a:focus {
+    color: var(--color-accent-light);
+    text-decoration: none;
+}
+
+.header-homepage {
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 99;
+}
+
+/** Menu block **/
+.menu-primary {
+    background-color: var(--color-primary-dark);
+    border-top: 1px solid var(--color-gray-light);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.menu-primary ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-primary ul li::before {
+    display: none;
+}
+
+.menu-primary li {
+    border-bottom: 1px solid white;
+}
+
+.menu-primary li:last-of-type {
+    border-bottom: 0;
+}
+
+.menu-primary a {
+    display: block;
+    padding: 1rem 0;
+}
+
+.menu-primary a:visited {
+    color: white;
+}
+
+.menu-item-current a {
+    background-color: var(--color-secondary-dark);
+}
+
+@media (min-width: 600px){
+
+    .menu-primary li {
+        border: 0;
+        display: inline-block;
+        padding: 0;
+    }
+
+    .menu-primary a {
+        color: #fff;
+        display: block;
+        font-size: var(--size-xsmall);
+        letter-spacing: .1em;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .menu-primary a:hover, a:focus {
+        color: var(--color-gray-light);
+        text-decoration: underline;
+    }
+
+    .menu-item-current a{
+        background-color: var(--color-primary);
+        text-decoration: underline;
+    }
+}
+
+/* ==========================================================================
+ Secondary Menu Component
+========================================================================== */
+.menu-secondary ul li::before {
+    display: none;
+}
+
+.menu-secondary-item-current, .menu-secondary-item-current:visited {
+    color: var(--color-accent-dark);
+    text-decoration: underline;
+}
+
+.dropdown-content {
+    display: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+/* ==========================================================================
+ Footer Component
+========================================================================== */
+footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-gray-light);
+    display: grid;
+    font-size: .8rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+}
+
+footer a {
+    color: var(--color-secondary-light);
+}
+
+footer a:hover {
+    color: var(--color-accent);
+}
+
+.footer-copyright {
+    text-align: right;
+}
+
+/* ==========================================================================
+ Button-link Components
+========================================================================== */
+
+.hero-button {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: .5rem 1rem;
+}
+
+.hero-button:visited {
+    color: white;
+}
+
+.hero-button:hover {
+    background-color: var(--color-secondary-dark);
+    color: white;
+    text-decoration: none;
+}
+
+.hero-button:focus {
+    background-color: var(--color-secondary-dark);
+    box-shadow: 0 0 5px var(--color-secondary-dark);
+    outline: none;
+    text-decoration: none;
+}
+
+.hero-button:active {
+    background-color: var(--color-secondary-light);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.normal-button {
+    background-color: var(--color-accent-dark);
+    color: white;
+    display: inline-block;
+    font-size: var(--size-small);
+    margin-top: auto;
+    padding: .75rem;
+}
+
+.normal-button:visited {
+    color: white;
+}
+
+.normal-button:hover {
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+}    
+
+.normal-button:focus {
+    background-color: var(--color-accent);
+    box-shadow: 0px 0px 5px var(--color-primary);
+    outline: none;
+    text-decoration: none;
+}
+
+.normal-button:active {
+    background-color: var(--color-accent-light);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.tertiary-button {
+    background-color: var(--color-gray-light);
+    color: var(--color-gray-dark);
+    font-size: var(--size-xsmall);
+    padding: .75rem;
+}
+
+.tertiary-button:visited {
+    color: var(--color-gray-dark);
+}
+
+.tertiary-button:hover {
+    background-color: var(--color-gray);
+    color: white;
+    text-decoration: none;
+}
+
+.tertiary-button:focus {
+    background-color: var(--color-gray);
+    box-shadow: 0px 0px 5px var(--color-gray-dark);
+    color: white;
+    outline: none;
+    text-decoration: none;
+}
+
+.normal-button:active {
+    background-color: var(--color-gray-light);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+ Accordion Component
+========================================================================== */
+summary {
+    background-color: var(--color-primary);
+    color: white;
+    font-family: var(--font-headings);
+    margin-bottom: .5rem;
+    padding: .5rem;
+}
+
+summary:hover {
+    background-color: var(--color-primary-light);
+}
+
+summary:focus{
+    background-color: var(--color-primary-light);
+    outline: none;
+}
+
+details[open] summary {
+    background-color: var(--color-secondary-dark);
+    margin-bottom: 0;
+    outline: none;
+}
+
+details div {
+    border: 1px solid var(--color-secondary-dark);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+/* ==========================================================================
+ Modal Component
+========================================================================== */
+dialog {
+    animation: slide-in-down-grow .6s ease-out;
+    border: 0;
+    border-top: solid 50px var(--color-secondary-dark);
+    max-width: 40%;
+    padding-top: 0;
+    position: relative;
+}
+
+.close {
+    color: white;
+    font-size: var(--size-xlarge);
+    font-weight: bold;
+    line-height: 1;
+    position: absolute;
+    right: 1rem;
+    top: -3.3rem;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+dialog::backdrop {
+	background-color: black;
+	opacity: .7;
+}
+
+@keyframes slide-in-down-grow {
+	
+	0% {
+		transform: translateY(20rem) scale(1);
+	} 
+	
+	60% {
+		transform: translateY(1rem) scale(1.1);
+	}
+	
+	100% {
+		transform: translateY(0) scale(1);
+	}
+	
+}
+
+/* ==========================================================================
+ Form Components
+========================================================================== */
+form {
+    border: solid 1px var(--color-gray-light);
+    padding: 1rem;
+}
+
+legend {
+    color: var(--color-gray);
+}
+
+label {
+    display: inline-block;
+    margin: 1rem 0 .3rem;
+}
+
+form p {
+    font-size: var(--size-small);
+    margin-top: .5rem;
+}
+
+input, select {
+    display: block;
+    font-family: var(--font-primary);
+    height: 1.5rem;
+    min-width: 15rem;
+    padding: .5rem;
+}
+
+select {
+    border: .5px solid;
+    border-radius: 0;
+}
+
+.message {
+    display: inline-block;
+    margin-left: .5rem;
+}
+
+.message-alert {
+    color: var(--color-secondary-dark);
+}
+
+[error] {
+    border: .5px solid var(--color-secondary-dark);
+    box-shadow: 0 0 5px var(--color-secondary-dark);
+}
+
+.message-succsess {
+    color: darkgreen;
+}
+
+.input-succsess {
+    border: .5px solid darkgreen;
+    box-shadow: 0 0 5px darkgreen;
+}
+
+textarea {
+    font-family: var(--font-primary);
+    min-height: 5rem;
+    min-width: 25rem;
+    padding: .5rem;
+}
+
+form button, [type="submit"] {
+    background-color: var(--color-accent-dark);
+    border: 0;
+    border-radius: 0;
+    color: white;
+    font-family: var(--font-primary);
+    font-size: var(--size-small);
+    margin-top: 2rem;
+    padding: .7rem 1.5rem;
+}
+
+form button:visited, [type="submit"]:visited {
+    color: white;
+}
+
+form button:hover, [type="submit"]:hover {
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+}    
+
+form button:focus, [type="submit"]:focus {
+    background-color: var(--color-accent);
+    box-shadow: 0px 0px 5px var(--color-primary);
+    outline: none;
+    text-decoration: none;
+}
+
+form button:active, [type="submit"]:active {
+    background-color: var(--color-accent-light);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+[disabled] {
+    background-color: var(--color-gray-light);
+    border: none;
+}
+
+/* ==========================================================================
+ Notification Components
+========================================================================== */
+.notification {
+    box-shadow: 5px 5px 5px var(--color-gray-light);
+    display: flex;
+    margin: 1rem 0;
+}
+
+.notification-icon {
+    min-width: 70px;
+    padding: .9rem;
+    width: 70px;
+}
+
+.notification-content {
+    padding: 1rem;
+}
+.notification-content h2 {
+    font-size: var(--size-medium);
+    margin: 0 0 1rem;
+}
+
+.error-icon {
+    background: url(img/error.svg) no-repeat, var(--color-secondary);
+    background-position: 50% 1rem;
+    background-size: 40px;
+}
+
+.warning-icon {
+    background: url(img/warning.svg) no-repeat, var(--color-secondary-light);
+    background-position: 50% 1rem;
+    background-size: 40px;
+}
+
+.neutral-icon {
+    background: url(img/information.svg) no-repeat, var(--color-primary-light);
+    background-position: 50% 1rem;
+    background-size: 40px;
+}
+
+.success-icon {
+    background: url(img/success.svg) no-repeat, green;
+    background-position: 50% 1rem;
+    background-size: 40px;
+}
+
+.notification-control {
+    margin-left: auto;
+    padding-right: .5rem;
+}
+.notification-close {
+    color: var(--color-gray-light);
+    display: inline-block;
+    font-size: var(--size-large);
+    line-height: 1;
+    margin: 0 auto;
+    text-align: right;
+    padding: .5rem;
+}
+
+/* ==========================================================================
+ Hero Components
+========================================================================== */
+
+.hero-block {
+    align-items: flex-start;
+    background: url(img/tools-hero.jpg) no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    padding: 10%;
+}
+.text-featured-hero-section {
+    color: white;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.text-featured-hero-section:last-of-type {
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 930px) {
+    .hero-block {
+        background: url(img/tools-hero.jpg) cover;
+        background-position: 50%;
+        padding: 0 7% 0 45%;
+    }
+    .text-featured-hero-section {
+        font-size: var(--size-medium);
+    }
+    
+}
+@media (min-width: 1800px) {
+    .hero-block {
+        padding: 0 7% 0 50%;
+    }
+    
+}
+
+/* ==========================================================================
+ Cards Components
+========================================================================== */
+.card {
+    background-color: white;
+}
+
+.card:hover {
+    box-shadow: 1px 1px 5px gray;
+    text-decoration: none;
+}
+
+
+/** Blog archive **/
+.article-preview {
+    border: .5px solid var(--color-gray-light);
+    border-radius: 5px;
+    display: flex;
+    padding: 1.5rem;
+}
+
+.blog-archive-title {
+    color: var(--color-primary);
+    font-size: var(--size-medium);
+    margin: 0;
+}
+
+.article-preview p {
+    color: black;
+    font-size: var(--size-small);
+    margin: 1rem 0;
+}
+
+.article-preview p:last-of-type {
+    margin-bottom: 0;
+}
+
+.article-preview div:first-of-type {
+    margin-right: 1rem;
+    min-width: 150px;
+}
+@media (min-width: 600px) {
+    .article-preview {
+        flex-direction: column;
+    }
+   
+}
+
+@media (min-width: 1300px) {
+    .article-preview {
+        flex-direction: row;
+    }    
+} 
+
+/** Contact card **/
+
+.contact-card {
+    border: 1px solid var(--color-gray-light);
+    max-width: 30%;
+    padding: 1rem;
+}
+
+.contact-name {
+    font-size: var(--size-small);
+    text-align: center;
+    text-transform: none;
+}
+
+.contact-name:after {
+    border-bottom: 3px solid var(--color-secondary-dark);
+    content: ""; 
+    display: block; 
+    margin: auto;
+    padding-top: 5px;
+    width: 50%;
+}
+
+
+/** Service card **/
+
+.service-block {
+    background-color: white;
+    border: 1px solid var(--color-gray-light);
+    box-shadow: 1px 1px 5px gray;
+    margin: 1rem 0;
+}
+
+.service-block img {
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    height: 20rem;
+}
+
+.service-block-content {
+    padding: 1.5rem;
+}
+
+.service-block h2 {
+    font-size: var(--size-small);
+    margin: 0;
+}
+
+.service-block p {
+    font-size: var(--size-small);
+    margin: .5rem 0 1rem;
+}
+
+@media (min-width: 400px) {
+    .service-block {
+        border: 1px solid var(--color-gray-light);
+        box-shadow: 1px 1px 5px gray;
+        display: flex;
+    }
+
+    .service-image {
+        max-width: 30%;
+    }
+}
+
+@media (min-width: 600px) {
+    .service-image {
+        max-width: 100%;
+    }
+}
+
+/* ==========================================================================
+ Grid Components
+========================================================================== */
+
+/** 12 cards **/
+
+
+.grid {
+    display: grid;
+    margin: auto;
+}
+
+@media (min-width: 600px) {
+    .grid {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-block {
+        display: block;
+        margin: 0;
+    }
+}
+
+@media (min-width: 850px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .featured-service-left {
+        grid-column-start: 1;
+	    grid-column-end: 3;
+    }
+
+    .featured-service-right {
+        grid-column-start: 2;
+	    grid-column-end: 4;
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .featured-service-left {
+        grid-column-start: auto;
+	    grid-column-end: auto;
+    }
+
+    .featured-service-right {
+        grid-column-start: auto;
+	    grid-column-end: auto;
+    }
+}
+
+/** news **/
+.grid-news {
+    display: grid;
+    margin: auto;
+}
+
+@media (min-width: 600px) {
+    .grid-news {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 850px) {
+    .grid-news {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1670px) {
+    .grid-news {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/** 3 cards **/
+
+.grid-callout {
+    display: grid;
+    padding: 10px;
+}
+
+.card-callout {
+    background-color: var(--color-gray-light);
+    box-shadow: 1px 1px 5px gray;
+    margin: 0 10px;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.card-callout img{
+    display: block;
+    margin: auto;
+    max-width: 100px;
+}
+
+.rotate-cw {
+    transform: rotate(2deg);
+}
+
+.rotate-ccw {
+    transform: rotate(-2deg);
+}
+
+@media (min-width: 600px) {
+    .grid-callout {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-callout {
+        margin: 0;
+    }
+
+    .card-callout:last-of-type {
+        grid-column-start: 1;
+	    grid-column-end: 3;
+    }
+    
+}
+
+@media (min-width: 950px) {
+    .grid-callout {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-callout:last-of-type {
+        grid-column-start: 3;
+	    grid-column-end: 4;
+    }
+}
+
+.news {
+    background-color: var(--color-gray-light);
+    padding: 2rem 0 6rem;
+}
+
+.news h2 {
+    margin: 2rem auto;
+    max-width: 52rem;
+    padding: 1rem;
+}
